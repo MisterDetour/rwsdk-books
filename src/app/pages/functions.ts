@@ -19,6 +19,7 @@ export const createBook = async (formData: FormData) => {
           },
         },
         title: formData.get("title") as string,
+        status: 'unread',
         category: {
           connect: {
             id: formData.get("category") as string,

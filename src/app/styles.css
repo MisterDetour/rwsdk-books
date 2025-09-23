@@ -1,0 +1,99 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 20px;
+  background: #1f2225;
+  color: #656565;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.filters {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.filters button, 
+.button {
+  background: #343b44;
+  color: #BABD42;
+  border: none;
+  padding: 3px 20px;
+  cursor: pointer;
+}
+
+.button {
+  color: #bd7542;
+}
+
+.filters button.active {
+  color: #b7499c;
+}
+
+.bookshelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 120px);
+  margin-bottom: 40px;
+}
+
+.bookshelf img {
+  max-height: 180px;
+}
+
+form {
+  background: #191c20;
+  color: #7d8999;
+  border-radius: 10px;
+  padding: 15px;
+  width: 800px;
+  max-width: 100%;
+  margin-bottom: 40px;
+  display: grid;
+  gap: 20px;
+}
+
+form h2 {
+  font-size: 14px;
+}
+
+form label {
+  color: #bd7542;
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+form input, 
+form select {
+  border-radius: 5px;
+  color: #7d8999;
+  background: #1e2125;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  display: block;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form button {
+  background: #bd7542;
+  color: #000;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.action {
+  margin-bottom: 5px;
+}
