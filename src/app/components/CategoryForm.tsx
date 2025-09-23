@@ -17,7 +17,7 @@ const CategoryForm = () => {
 
   return (
     <div>
-      <div class="action">
+      <div className="action">
         <button className="button" onClick={ () => setShowForm(!showForm)}>Add Category</button>
       </div>
       {showForm && (

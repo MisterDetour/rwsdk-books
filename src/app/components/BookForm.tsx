@@ -9,7 +9,7 @@ const BookForm = ({ categories }: { categories: any }) => {
    const handleSubmit = async (formData: FormData) => {
     const result = await createBook(formData);
     if (result.success) {
-      alert('Added!');
+      window.location.href = "/";
     } else {
       console.error(result.error);
     }
@@ -17,7 +17,7 @@ const BookForm = ({ categories }: { categories: any }) => {
 
   return (
     <div>
-      <div class="action">
+      <div className="action">
         <button className="button" onClick={ () => setShowForm(!showForm)}>Add Book</button>
       </div>
       {showForm && (
