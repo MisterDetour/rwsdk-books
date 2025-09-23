@@ -5,7 +5,7 @@ import { sessions } from "@/session/store";
 
 export const userRoutes = [
   route("/login", [Login]),
-  route("/signup", [Signup]),
+  route("/signup", [Signup]), 
   route("/logout", async function ({ request }) {
     const headers = new Headers();
     await sessions.remove(request, headers);
