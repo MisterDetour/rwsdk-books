@@ -24,6 +24,7 @@ datasource db {
 model Book {
   id         String    @id @default(uuid())
   title      String
+  image      String
   createdAt  DateTime  @default(now())
   readDate   DateTime?
   user       User?     @relation(fields: [userId], references: [id])

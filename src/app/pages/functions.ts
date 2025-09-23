@@ -1,14 +1,21 @@
 "use server";
 
+import { requestInfo } from "rwsdk/worker";
 import { db } from "@/db";
 
 export const createBook = async (formData: FormData) => {
   try {
+    const { ctx } = requestInfo;
+
+    if (!ctx.user) {
+      throw new Error("User not found");
+    }
+
     await db.book.create({
       data: {
         user: {
           connect: {
-            id: "1",
+            id: ctx.user.id,
           },
         },
         title: formData.get("title") as string,
@@ -17,6 +24,33 @@ export const createBook = async (formData: FormData) => {
             id: formData.get("category") as string,
           },
         },
+        image: formData.get("image") as string
+      }
+    })
+
+    return { success: true, error: null };
+  } catch (error) {
+    console.error(error);
+    return { success: false, error: error as Error };
+  }
+}
+
+export const createCategory = async (formData: FormData) => {
+  try {
+    const { ctx } = requestInfo;
+
+    if (!ctx.user) {
+      throw new Error("User not found");
+    }
+
+    await db.category.create({
+      data: {
+        user: {
+          connect: {
+            id: ctx.user.id,
+          },
+        },
+        name: formData.get("name") as string,
       }
     })
 
