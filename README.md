@@ -1,8 +1,9 @@
 dev server: pnpm dev
 db migrate: pnpm run migrate:new "setup all database models"
 database viewer: npx prisma studio
+export database: npx wrangler d1 export rwsdk-books-selected-aardwolf --remote --output=./database.sql
 
-[] need to be able to change status on books
+[] need to be able to change status on books (mark read date)
 [] ability to delete books
 [] figure out better solution for refreshing books after adding one
 [] setup image uploads

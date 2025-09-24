@@ -52,11 +52,7 @@ const Bookshelf = ({ books, categories }: { books: any, categories: any }) => {
       <div className="bookshelf">
         {bookshelf.map(book => (
           <div key={book.id}>
-            <a
-              href={`https://libweb.cityofalbany.net/eg/opac/results?query=${book.title}&qtype=keyword&locg=2`}
-              target="_blank"
-              rel="noreferrer"
-              >
+            <a href={`/book/${book.id}`}>
               <img src={book.image} alt={book.title} width="100" />
             </a>
           </div>

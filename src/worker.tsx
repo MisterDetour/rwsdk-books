@@ -2,6 +2,7 @@ import { defineApp, ErrorResponse } from "rwsdk/worker";
 import { route, render, prefix } from "rwsdk/router";
 import { Document } from "@/app/Document";
 import { Home } from "@/app/pages/Home";
+import { Book } from "@/app/pages/Book";
 import { setCommonHeaders } from "@/app/headers";
 import { userRoutes } from "@/app/pages/user/routes";
 import { sessions, setupSessionStore } from "./session/store";
@@ -56,6 +57,17 @@ export default defineApp([
         }
       },
       Home,
+    ]),
+    route("/book/:id", [
+      ({ ctx }) => {
+        if (!ctx.user) {
+          return new Response(null, {
+            status: 302,
+            headers: { Location: "/user/login" },
+          });
+        }
+      },
+      Book,
     ]),
     prefix("/user", userRoutes),
   ]),

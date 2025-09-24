@@ -3,6 +3,20 @@
 import { requestInfo } from "rwsdk/worker";
 import { db } from "@/db";
 
+export const deleteBook = async (bookId: string) => {
+  try {
+    await db.book.delete({
+      where: {
+        id: bookId,
+      },
+    });
+    return { success: true, error: null }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: error as Error }
+  }
+}
+
 export const createBook = async (formData: FormData) => {
   try {
     const { ctx } = requestInfo;
