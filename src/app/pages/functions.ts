@@ -3,6 +3,24 @@
 import { requestInfo } from "rwsdk/worker";
 import { db } from "@/db";
 
+export const updateStatus = async (bookId: string, status: string) => {
+  try {
+    await db.book.update({
+      where: {
+        id: bookId,
+      },
+      data: {
+        status: status,
+      }
+    })
+
+    return { success: true, error: null }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: error as Error }
+  }
+}
+
 export const deleteBook = async (bookId: string) => {
   try {
     await db.book.delete({

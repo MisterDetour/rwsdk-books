@@ -36,6 +36,14 @@ const BookForm = ({ categories }: { categories: any }) => {
             </select>
           </div>
           <div>
+            <label htmlFor="status">Status</label>
+            <select id="status" name="status">
+              <option value="unread">Unread</option>
+              <option value="reading">Reading</option>
+              <option value="read">Read</option>
+            </select>
+          </div>
+          <div>
             <label htmlFor="image">Image</label>
             <input type="text" id="image" name="image" />
           </div>
