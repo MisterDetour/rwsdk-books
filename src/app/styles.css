@@ -42,7 +42,7 @@ a {
 
 .bookshelf {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 120px);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   margin-bottom: 40px;
   gap: 15px;
 }
