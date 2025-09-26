@@ -16,7 +16,7 @@ const Bookshelf = ({ books, categories }: { books: any, categories: any }) => {
 
     if (category !== 0) {
       setBookshelf(books.filter(
-        book => book.categoryId == category && book.status == 'unread'
+        book => book.categoryId == category && book.status == statusFilter
       ));
     } else {
       setBookshelf(books);
@@ -28,7 +28,7 @@ const Bookshelf = ({ books, categories }: { books: any, categories: any }) => {
 
     if(categoryFilter) {
       setBookshelf(books.filter(
-        book => book.categoryId == categoryFilter && book.status == status
+        book => book.categoryId == categoryFilter && book.status == statusFilter
       ));
     } else {
       setBookshelf(books.filter(

@@ -1,7 +1,7 @@
 "use client";
 
 import { db } from "@/db";
-import { updateStatus, deleteBook } from "../pages/functions";
+import { updateStatus, deleteBook, updateRating } from "../pages/functions";
 
 const Actions = ({ book }: { book: any }) => {
   const handleDelete = async (book: string) => {
@@ -23,6 +23,14 @@ const Actions = ({ book }: { book: any }) => {
       alert('status updated');
     }
   }
+
+  const handleRatingChange = async (rating: number) => {
+    const result = await updateRating(book.id, rating);
+
+    if (result.success) {
+      alert('rating updated');
+    }
+  }
   
   return (
     <ul className="links">
@@ -31,6 +39,14 @@ const Actions = ({ book }: { book: any }) => {
           <option value="unread">Unread</option>
           <option value="reading">Reading</option>
           <option value="read">Read</option>
+        </select>
+      </li>
+      <li>
+        <select defaultValue={book.rating} onChange={(e) => handleRatingChange(Number(e.target.value))}>
+          <option>Rating</option>
+          <option value="1">Ok</option>
+          <option value="2">Good</option>
+          <option value="3">Great</option>
         </select>
       </li>
       <li>

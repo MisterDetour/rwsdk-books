@@ -27,6 +27,7 @@ model Book {
   image      String
   createdAt  DateTime  @default(now())
   status     String
+  rating     Int?
   readDate   DateTime?
   user       User?     @relation(fields: [userId], references: [id])
   userId     String?

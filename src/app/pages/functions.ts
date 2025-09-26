@@ -3,7 +3,31 @@
 import { requestInfo } from "rwsdk/worker";
 import { db } from "@/db";
 
+export const updateRating = async (bookId: string, rating: number) => {
+  try {
+    await db.book.update({
+      where: {
+        id: bookId,
+      },
+      data: {
+        rating: rating,
+      }
+    })
+
+    return { success: true, error: null }
+  } catch (error) {
+    console.error(error)
+    return { success: false, error: error as Error }
+  }
+}
+
 export const updateStatus = async (bookId: string, status: string) => {
+  let readDate = null;
+
+  if(status === 'read') {
+    readDate = new Date()
+  }
+
   try {
     await db.book.update({
       where: {
@@ -11,6 +35,7 @@ export const updateStatus = async (bookId: string, status: string) => {
       },
       data: {
         status: status,
+        readDate: readDate
       }
     })
 
