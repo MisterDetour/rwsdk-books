@@ -15,11 +15,21 @@ const Bookshelf = ({ books, categories }: { books: any, categories: any }) => {
     setCategoryFilter(category);
 
     if (category !== 0) {
-      setBookshelf(books.filter(
-        book => book.categoryId == category && book.status == statusFilter
-      ));
+      if(statusFilter === 'all') {
+        setBookshelf(books.filter(
+          book => book.categoryId == category
+        ));
+      } else {
+        setBookshelf(books.filter(
+          book => book.categoryId == category && book.status == statusFilter
+        ));
+      }
     } else {
-      setBookshelf(books);
+      if(statusFilter === 'all') {
+        setBookshelf(books);
+      } else {
+        setBookshelf(unread);
+      }
     }
   }
 
@@ -27,13 +37,23 @@ const Bookshelf = ({ books, categories }: { books: any, categories: any }) => {
     setStatusFilter(status);
 
     if(categoryFilter) {
-      setBookshelf(books.filter(
-        book => book.categoryId == categoryFilter && book.status == statusFilter
-      ));
+      if(status === 'all') {
+        setBookshelf(books.filter(
+          book => book.categoryId == categoryFilter
+        ));
+      } else {
+        setBookshelf(books.filter(
+          book => book.categoryId == categoryFilter && book.status == statusFilter
+        ));
+      }
     } else {
-      setBookshelf(books.filter(
-        book => book.status == status
-      ));
+      if(status === 'all') {
+        setBookshelf(books);
+      } else {
+        setBookshelf(books.filter(
+          book => book.status == status
+        ));
+      }
     }
   }
 
@@ -67,6 +87,9 @@ const Bookshelf = ({ books, categories }: { books: any, categories: any }) => {
         </li>
         <li>
           <button onClick={ () => filterBooksStatus('read')} className={statusFilter == 'read' ? 'active': ''}>Read</button>
+        </li>
+        <li>
+          <button onClick={ () => filterBooksStatus('all')} className={statusFilter == 'all' ? 'active': ''}>All</button>
         </li>
       </ul>
     </div>
