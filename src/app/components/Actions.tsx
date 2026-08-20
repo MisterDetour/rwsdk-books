@@ -5,6 +5,7 @@ import { updateStatus, deleteBook, updateRating } from "../pages/functions";
 
 const Actions = ({ book }: { book: any }) => {
   const handleDelete = async (book: string) => {
+    alert('test');
     if(confirm('Are you sure you want to delete this book?')) {
       const result = await deleteBook(book);
 
