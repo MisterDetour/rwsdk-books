@@ -1,0 +1,15 @@
+- [] filter by rating
+- [] mobile styles
+- [] setup image uploads
+
+- [] add readDate when adding a new book with read status
+- [] order read books by readDate
+- [] make fields required
+- [] use toasts instead of alerts https://docs.rwsdk.com/tutorial/full-stack-app/jobs-details/#updating-the-application
+- [] figure out better solution for refreshing books after adding one
+- [] improve css
+- [] books don't update after new one added
+- [] add custom font
+- [] turn off signup
+- [] fix type errors (bookshelf.tsx)
+- [] add a 'no books' found message when bookshelf is empty or filters return none
